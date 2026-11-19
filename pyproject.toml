@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perfkit"
+version = "0.1.0"
+description = "A simple trade CSV performance report"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "backtesting==0.6.2",
+    "pandas>=2.0",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+perfkit = "perfkit.cli:main"
+
+[tool.setuptools]
+packages = ["perfkit", "part_a"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "part_a"]
+pythonpath = ["."]
